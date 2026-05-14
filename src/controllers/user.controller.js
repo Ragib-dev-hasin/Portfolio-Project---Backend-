@@ -44,6 +44,23 @@ const login = async (req, res) => {
   }
 };
 
-const authcontrollers = { register, login };
+const userLogout = async (req, res) => {
+  try {
+    const token = req.cookies["user-token"];
+
+    if (!token) {
+      res.status(401).json({ msg: "There is no Token" });
+    } else {
+      res.clearCookie("user-token");
+      return res
+        .status(200)
+        .json({ success: true, msg: "successfully log out" });
+    }
+  } catch (err) {
+    return res.status(401).json({ msg: err.message });
+  }
+};
+
+const authcontrollers = { register, login, userLogout };
 
 export default authcontrollers;
