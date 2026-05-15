@@ -1,14 +1,20 @@
 import { Schema, model, Types } from "mongoose";
 
-const commentSchema = new Schema({
-  blogID: { type: Schema.Types.ObjectId },
+const commentSchema = new Schema(
+  {
+    blogID: { type: Schema.Types.ObjectId },
 
-  name: { type: String },
+    name: { type: String },
 
-  email: { type: String, required: true },
+    email: { type: String, required: true },
 
-  content: { type: String },
-});
+    content: { type: String },
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
+);
 
 const Comment = model("Comment", commentSchema);
 
