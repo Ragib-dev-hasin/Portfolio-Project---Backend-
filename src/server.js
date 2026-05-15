@@ -6,11 +6,13 @@ import router from "./routes/user.routes.js";
 import blogRouters from "./routes/blog.routes.js";
 import commentRouters from "./routes/comment.routes.js";
 import exRouters from "./routes/experience.routes.js";
+import dashRouters from "./routes/dash.routes.js";
 
 app.use("/auth", router);
 app.use("/experience", exRouters);
 app.use("/blog", blogRouters);
 app.use("/comment", commentRouters);
+app.use("/dash", dashRouters);
 
 const port = process.env.PORT;
 connectDB().then(() => {

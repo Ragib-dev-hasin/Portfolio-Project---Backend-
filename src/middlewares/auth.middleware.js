@@ -4,7 +4,7 @@ const validateuser = async (req, res, next) => {
   try {
     const token = req.cookies["user-token"];
     if (!token) {
-      res.json({ msg: "Invalid user" });
+      return res.json({ msg: "Invalid user" });
     }
     const result = await authConfig.decodeToken(token);
 
