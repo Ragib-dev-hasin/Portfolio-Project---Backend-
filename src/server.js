@@ -5,8 +5,10 @@ import app from "./app.js";
 import router from "./routes/user.routes.js";
 import blogRouters from "./routes/blog.routes.js";
 import commentRouters from "./routes/comment.routes.js";
-app.use("/auth", router);
+import exRouters from "./routes/experience.routes.js";
 
+app.use("/auth", router);
+app.use("/experience", exRouters);
 app.use("/blog", blogRouters);
 app.use("/comment", commentRouters);
 
